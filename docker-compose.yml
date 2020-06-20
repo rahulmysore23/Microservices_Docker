@@ -1,0 +1,15 @@
+version: '3.0'
+services:
+  py-docker:
+    build: .\Microservice1\faceapi\
+    container_name: py-docker
+    ports:
+    - "8000:8000"
+  go-docker:
+    build: .\Microservice2\
+    container_name: go-docker 
+    ports:
+    - "7070:7070"
+    links:
+    - py-docker
+    
